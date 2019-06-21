@@ -21,7 +21,6 @@ router.get('/me', auth, async (req, res) => {
     if (!profile) {
       return res.status(400).json({ msg: 'There is no profile for this user' })
     }
-
     res.json(profile)
   } catch (err) {
     console.error(err.message)
@@ -352,9 +351,10 @@ router.get('/github/:username', (req, res) => {
     request(options, (error, response, body) => {
       error && conseole.error(error)
 
-      response.statusCode !== 200
-        ? res.status(404).json({ msg: 'No GitHub profile found' })
-        : res.json(JSON.parse(body))
+      if (response.statusCode !== 200) {
+        return res.status(404).json({ msg: 'No GitHub profile found' })
+      }
+      res.json(JSON.parse(body))
     })
   } catch (err) {
     console.error(err.message)
