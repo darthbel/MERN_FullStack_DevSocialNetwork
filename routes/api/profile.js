@@ -96,13 +96,13 @@ router.post(
           { $set: profileFields },
           { new: true }
         )
-
-        return res.json(profile)
+      } else {
+        // Create
+        profile = new Profile(profileFields)
+        await profile.save()
       }
 
-      // Create
-      profile = new Profile(profileFields)
-      await profile.save()
+      return res.json(profile)
     } catch (err) {
       console.error(err.message)
       res.status(500).send('Server Error')
