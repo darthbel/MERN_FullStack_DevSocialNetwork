@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://darthbel:darthbel123@devsocialnetwork-sn3sn.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "secretToken",
+  "githubClientId": "68848a326a431e60481b",
+  "githubSecret": "ecfe974ff2920a8388d0602fd4e453d67a706335"
+}
