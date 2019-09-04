@@ -24,7 +24,7 @@ const PostForm = ({ addPost }) => {
           name='text'
           cols='30'
           rows='5'
-          placeholder='Comment on this post'
+          placeholder='Write your post here...'
           value={text}
           onChange={e => setText(e.target.value)}
           required
